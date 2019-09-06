@@ -7,6 +7,11 @@ import subprocess
 from tqdm import tqdm, trange
 import requests
 import wget
+from pathlib import Path
+
+home_dir = Path.home()
+ROOT_DIR = os.path.join(home_dir, 'azt/techno')
+# print(ROOT_DIR)
 
 from pyfiglet import Figlet
 
@@ -20,7 +25,7 @@ __author__ = "Yaakov AZAT"
 __email__ = "a@azat.ai"
 __copyright__ = "Azat Artificial Intelligence, LLP."
 
-work_path = "/azt/techno"
+work_path = ROOT_DIR
 
 
 def check_internet():

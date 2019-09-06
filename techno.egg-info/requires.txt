@@ -4,3 +4,5 @@ adafruit-circuitpython-bno055
 Adafruit-GPIO
 tqdm
 requests
+wget
+colorama
