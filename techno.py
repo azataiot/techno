@@ -51,6 +51,15 @@ def init(ctx, param, value):
         data = json.load(json_file)
         _ROOT_created = data['_ROOT_created']
 
+    dirName = work_path
+
+    try:
+        os.mkdir(dirName)
+        print("Directory ", dirName, " Created ")
+    except FileExistsError:
+        print("Directory ", dirName, " already exists")
+
+
     if _ROOT_created == 0:
         try:
             os.makedirs(work_path)
