@@ -62,7 +62,7 @@ else
     python3 -m venv venv
     source venv/bin/activate
     echo 'virtualenv activated!'
-    python3 ./azt/techno/si1145/setup.py install --prefix=$HOME/.local
+    python3 ./azt/techno/si1145/setup.py install
     echo 'SI45 drivers installed successfully!'
     echo 'Done!'
 fi
