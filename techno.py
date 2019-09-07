@@ -93,8 +93,8 @@ def init(ctx, param, value):
     click.echo('Installing Orientation Drivers...')
     for i in trange(10):
         time.sleep(0.01)
-    click.echo('Orientation Driver installed.')
-    click.echo('Downloading Driver Documentations...')
+    click.secho('Orientation Driver installed.',fg='green')
+
 
     ctx.exit()
 
