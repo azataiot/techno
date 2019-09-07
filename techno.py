@@ -60,18 +60,18 @@ def init(ctx, param, value):
         print("Directory ", dirName, " already exists")
 
 
-    if _ROOT_created == 0:
-        try:
-            os.makedirs(work_path)
-        except OSError:
-            click.secho("Creation of the directory %s failed!" % work_path, fg='red')
-            click.secho("You should try: 'sudo techno --init' ", fg='yellow')
-            ctx.exit()
-        else:
-            click.secho("Successfully created the directory %s " % work_path, fg='green')
-            data['_ROOT_created'] = 1
-            with open('./config.json', 'w') as outfile:
-                json.dump(data, outfile)
+    # if _ROOT_created == 0:
+    #     try:
+    #         os.makedirs(work_path)
+    #     except OSError:
+    #         click.secho("Creation of the directory %s failed!" % work_path, fg='red')
+    #         click.secho("You should try: 'sudo techno --init' ", fg='yellow')
+    #         ctx.exit()
+    #     else:
+    #         click.secho("Successfully created the directory %s " % work_path, fg='green')
+    #         data['_ROOT_created'] = 1
+    #         with open('./config.json', 'w') as outfile:
+    #             json.dump(data, outfile)
     # current_directory = subprocess.Popen(['cd'],
     #                                      stdout=subprocess.PIPE,
     #                                      stderr=subprocess.STDOUT)
