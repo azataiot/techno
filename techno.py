@@ -9,9 +9,9 @@ import requests
 import wget
 from pathlib import Path
 
-home_dir = Path.home()
-ROOT_DIR = os.path.join(home_dir, 'azt/techno')
-# print(ROOT_DIR)
+# home_dir = Path.home()
+# ROOT_DIR = os.path.join(home_dir, 'azt/techno')
+# # print(ROOT_DIR)
 
 from pyfiglet import Figlet
 
@@ -25,7 +25,7 @@ __author__ = "Yaakov AZAT"
 __email__ = "a@azat.ai"
 __copyright__ = "Azat Artificial Intelligence, LLP."
 
-work_path = ROOT_DIR
+# work_path = ROOT_DIR
 
 
 def check_internet():
@@ -47,18 +47,18 @@ def init(ctx, param, value):
     path = os.getcwd()
     print("The current working directory is %s\n" % path)
 
-    with open('./config.json') as json_file:
-        data = json.load(json_file)
-        _ROOT_created = data['_ROOT_created']
+    # with open('./config.json') as json_file:
+    #     data = json.load(json_file)
+    #     _ROOT_created = data['_ROOT_created']
 
-    dirName = work_path
-
-    try:
-        os.mkdir(dirName)
-        print("Directory ", dirName, " Created ")
-    except FileExistsError:
-        print("Directory ", dirName, " already exists")
-
+    # dirName = work_path
+    #
+    # try:
+    #     os.mkdir(dirName)
+    #     print("Directory ", dirName, " Created ")
+    # except FileExistsError:
+    #     print("Directory ", dirName, " already exists")
+    #
 
     # if _ROOT_created == 0:
     #     try:
