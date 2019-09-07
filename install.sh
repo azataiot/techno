@@ -56,14 +56,13 @@ else
     echo ''
     echo 'Creating Driver Source files...'
     echo 'Downloading SI1145 driver source files...'
-    git clone https://github.com/THP-JOE/Python_SI1145 si1145
+    git clone https://github.com/THP-JOE/Python_SI1145 azt/techno/si1145
     echo 'SI1145 source files downloaded!'
     echo 'creating python3 virtualenv...'
     python3 -m venv venv
     source venv/bin/activate
     echo 'virtualenv activated!'
-    python3 ./si1145/setup.py install
+    python3 ./azt/techno/si1145/setup.py install
     echo 'SI45 drivers installed successfully!'
-    rm -rf si1145
     echo 'Done!'
 fi
