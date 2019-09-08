@@ -41,9 +41,9 @@ else
     echo "Linux/Unix platform detected..."
     echo ''
     echo 'Start installing Python3 on raspberry pi...'
-    sudo apt get install python3 -y
+    sudo apt install python3 -y
     echo 'Python3 installed.'
-    sudo apt get install python3-dev -y
+    sudo apt install python3-dev -y
     echo 'Python3 Development Version Installed.'
     sudo apt install python3-pip -y
     echo 'pip3 installed'
@@ -63,4 +63,13 @@ else
     cd ./azt/techno/si1145/ && sudo python3 setup.py install
     echo 'SI45 drivers installed successfully!'
     echo 'Done!'
+    echo 'Installing AzatAI Technopark IOT controller:'
+    sleep 1
+    echo -ne '#####                     (33%)\r'
+    git clone https://github.com/yaakovazat/techno azt/techno/bin
+    sleep 1
+    echo -ne '#############             (66%)\r'
+    sleep 1
+    echo -ne '#######################   (100%)\r'
+    echo -ne '\n'
 fi
