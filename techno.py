@@ -113,8 +113,8 @@ def run(ctx, param, value):
     click.secho("AzatAI Techno Console Started!", fg='green')
     click.secho("Please Press Cntrl + Z to stop! \n WARN: Running code too much time may cause hardware problem!",
                 fg='yellow')
+    click.secho('INFO: The default see level pressure is: 1013.25', fg='blue')
     while True:
-        click.secho('INFO: The default see level pressure is: 1013.25', fg='blue')
         i2c = I2C(SCL, SDA)
         orientation_sensor = adafruit_bno055.BNO055(i2c)
         light_sensor = SI1145.SI1145()
