@@ -1,6 +1,8 @@
 README.md
 setup.py
 techno.py
+SI1145/SI1145.py
+SI1145/__init__.py
 techno.egg-info/PKG-INFO
 techno.egg-info/SOURCES.txt
 techno.egg-info/dependency_links.txt
