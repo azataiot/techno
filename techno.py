@@ -115,15 +115,6 @@ def run(ctx, param, value):
                 fg='yellow')
     while True:
         click.secho('INFO: The default see level pressure is: 1013.25', fg='blue')
-        sea_level_pressure = input('Please Enter sea level pressure:')
-        if isinstance(sea_level_pressure, float):
-            bme680.sea_level_pressure = sea_level_pressure
-        elif isinstance(sea_level_pressure, int):
-            bme680.sea_level_pressure = sea_level_pressure
-        else:
-            click.secho('ERROR! You might entered a wrong value for see level pressure!', fg='red')
-            ctx.exit()
-
         i2c = I2C(SCL, SDA)
         orientation_sensor = adafruit_bno055.BNO055(i2c)
         light_sensor = SI1145.SI1145()
