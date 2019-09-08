@@ -60,6 +60,7 @@ else
     echo 'SI1145 source files downloaded!'
     echo 'creating python3 virtualenv...'
     echo 'virtualenv activated!'
+    sudo sudo python3 ./azt/techno/si1145/setup.py install
     echo 'SI45 drivers installed successfully!'
     echo 'Done!'
 fi
