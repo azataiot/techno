@@ -66,10 +66,10 @@ else
     echo 'Installing AzatAI Technopark IOT controller:'
     sleep 1
     echo -ne '#####                     (33%)\r'
-    git clone https://github.com/yaakovazat/techno azt/techno/bin
+    cd / && git clone https://github.com/yaakovazat/techno azt/techno/bin
     sleep 1
     echo -ne '#############             (66%)\r'
     sleep 1
     echo -ne '#######################   (100%)\r'
-    echo -ne '\n'
+    echo 'Done!'
 fi
