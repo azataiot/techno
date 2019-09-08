@@ -13,7 +13,8 @@ setup(
         'tqdm',
         'requests',
         'wget',
-        'colorama'
+        'colorama',
+        'adafruit-circuitpython-bme680'
     ],
     entry_points='''
     [console_scripts]

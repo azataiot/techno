@@ -8,6 +8,13 @@ from tqdm import tqdm, trange
 import requests
 import wget
 from pathlib import Path
+from SI1145 import SI1145
+import adafruit_bno055
+from busio import I2C
+from board import SDA, SCL
+import gc
+import adafruit_bme680
+import board
 
 # home_dir = Path.home()
 # ROOT_DIR = os.path.join(home_dir, 'azt/techno')
@@ -24,6 +31,7 @@ _Installed = False
 __author__ = "Yaakov AZAT"
 __email__ = "a@azat.ai"
 __copyright__ = "Azat Artificial Intelligence, LLP."
+
 
 # work_path = ROOT_DIR
 
@@ -93,8 +101,7 @@ def init(ctx, param, value):
     click.echo('Installing Orientation Drivers...')
     for i in trange(10):
         time.sleep(0.01)
-    click.secho('Orientation Driver installed.',fg='green')
-    import SI1145.SI1145 as SI1145
+    click.secho('Orientation Driver installed.', fg='green')
 
     ctx.exit()
 
@@ -102,7 +109,48 @@ def init(ctx, param, value):
 def run(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo('run')
+    click.secho('Start running the AzatAI Techno Console:', fg='green')
+    click.secho("AzatAI Techno Console Started!", fg='green')
+    click.secho("Please Press Cntrl + Z to stop! \n WARN: Running code too much time may cause hardware problem!",
+                fg='yellow')
+    while True:
+        click.secho('INFO: The default see level pressure is: 1013.25', fg='blue')
+        sea_level_pressure = input('Please Enter sea level pressure:')
+        if type(sea_level_pressure) == type(3.14):
+            bme680.sea_level_pressure = sea_level_pressure
+        elif type(sea_level_pressure) == type(314):
+            bme680.sea_level_pressure = sea_level_pressure
+        else:
+            click.secho('ERROR! You might entered a wrong value for see level pressure!', fg='red')
+            ctx.exit()
+
+        i2c = I2C(SCL, SDA)
+        orientation_sensor = adafruit_bno055.BNO055(i2c)
+        light_sensor = SI1145.SI1145()
+        gc.collect()
+        bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c)
+        # change this to match the location's pressure (hPa) at sea level
+        bme680.sea_level_pressure = 1013.25
+        print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        click.secho('BME680:', fg='blue')
+        print("\nTemperature: %0.1f C" % bme680.temperature)
+        print("Gas: %d ohm" % bme680.gas)
+        print("Humidity: %0.1f %%" % bme680.humidity)
+        print("Pressure: %0.3f hPa" % bme680.pressure)
+        print("Altitude = %0.2f meters" % bme680.altitude)
+        click.secho('BNO055', fg='blue')
+        print(orientation_sensor.temperature)
+        print(orientation_sensor.euler)
+        print(orientation_sensor.gravity)
+        click.secho('SI1145', fg='blue')
+        vis = light_sensor.readVisible()
+        _IR = light_sensor.readIR()
+        _UV = light_sensor.readUV()
+        uvindex = _UV / 100.0
+        print('Vis:'+str(vis))
+        print("IR"+str(_IR))
+        print("UV Index"+str(uvindex))
+        time.sleep(3)
     ctx.exit()
 
 
