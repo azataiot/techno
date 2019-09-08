@@ -116,9 +116,9 @@ def run(ctx, param, value):
     while True:
         click.secho('INFO: The default see level pressure is: 1013.25', fg='blue')
         sea_level_pressure = input('Please Enter sea level pressure:')
-        if type(sea_level_pressure) == type(3.14):
+        if isinstance(sea_level_pressure, float):
             bme680.sea_level_pressure = sea_level_pressure
-        elif type(sea_level_pressure) == type(314):
+        elif isinstance(sea_level_pressure, int):
             bme680.sea_level_pressure = sea_level_pressure
         else:
             click.secho('ERROR! You might entered a wrong value for see level pressure!', fg='red')
